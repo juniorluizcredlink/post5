@@ -1,61 +1,44 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-        <title>Blank App</title>
-
-		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>          
-        <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>    
-    </head>
-
-    <body>
-<center>
-<h1>Atualizado 2</h1>
-<form method="post" id="infoForm">
-    <input type="text" name="firt_name" id="firt_name" value="" placeholder="Firt Name"  />   <br /> <br />
-    <input type="text" name="last_name" id="last_name" value="" placeholder="Last Name"  />   <br /> <br />
-    <input type="text" name="email" id="email" value="" placeholder="Email"  /><br /> <br />
-    <button type="submit">Submit</button> 
-</form>
- </center>
-
-
-
-<script type="application/javascript">
-
-$('#infoForm').submit(function() {
-
-
-    var postTo = 'https://cartaodecreditoconsignado.com.br/post.php';
-
-    $.post(postTo,({first_name: $('[name=first_name]').val(), last_name: $('[name=last_name]').val(), email: $('[name=email]').val()}),
- 
-  
-    function(data) {
-        alert(data);
-		alert("funfou");
-        if(data != "") {
-            alert("funfou");
-        } else {
-            alert("funfou");
-        }
-        },'json');
-		
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;">
+        
+	<title>jQuery form post</title>
 	
-    return false;
+	<script src="js/phonegap-1.2.0.js"></script>
+	<script src="js/jquery-1.5.min.js"></script>
+    <script src="js/post.js"></script>
+        
+    <script>
+        function onBodyLoad() {		
+            document.addEventListener("deviceready",onDeviceReady,false);
+        }
+    </script>
+        
+    <style>
+        label, b {
+            display: block;
+        }
+    </style>
+</head>
+<body onload="onBodyLoad()">
 
-});
+<div id="landmark-1" data-landmark-id="1">
+	<form>
+		<label for="email">
+			<b>Email</b>
+			<input type="email" id="email" name="email">
+		</label>
 
+		<label for="comment">
+			<b>Comment</b>
+			<textarea id="comment" name="comment" cols="30" rows="10"></textarea>
+		</label>
+		
+		<input type="submit" value="Save">
+	</form>
+</div>
 
-</script>
-
-
-
-
-
-
-    <body>
-        <script type="text/javascript" src="cordova.js"></script>
-    </body>
+</body>
 </html>
